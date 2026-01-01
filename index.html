@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kachutali High School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f9fc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #1a4a8f;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-left: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #ffcc00;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #0d3a7a;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background-color: #ffcc00;
+            color: #1a4a8f;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 30px 0;
+            min-height: 70vh;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a4a8f;
+            border-bottom: 2px solid #ffcc00;
+            padding-bottom: 15px;
+        }
+
+        .page-header h2 {
+            font-size: 2.2rem;
+        }
+
+        /* Headmaster Desk Section */
+        .headmaster-desk {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        .headmaster-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .headmaster-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #e0e7ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            border: 5px solid #ffcc00;
+        }
+
+        .headmaster-photo i {
+            font-size: 4rem;
+            color: #1a4a8f;
+        }
+
+        .headmaster-name h3 {
+            color: #1a4a8f;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .headmaster-name p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .quote {
+            background-color: #f0f7ff;
+            padding: 20px;
+            border-left: 5px solid #ffcc00;
+            margin: 25px 0;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        .quote p:last-child {
+            text-align: right;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #1a4a8f;
+        }
+
+        /* Links Section */
+        .links-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .link-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .link-card i {
+            font-size: 3rem;
+            color: #1a4a8f;
+            margin-bottom: 15px;
+        }
+
+        .link-card h3 {
+            color: #1a4a8f;
+            margin-bottom: 15px;
+        }
+
+        .link-card a {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #1a4a8f;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .link-card a:hover {
+            background-color: #1a4a8f;
+            color: white;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #1a4a8f;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #ffcc00;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .developer-info {
+            background-color: #0d3a7a;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+            }
+            
+            .nav-links li {
+                margin: 5px 10px;
+            }
+            
+            .headmaster-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .headmaster-photo {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Home Page Specific */
+        .welcome-section {
+            text-align: center;
+            padding: 40px 0;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        .welcome-section h2 {
+            color: #1a4a8f;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f7ff;
+            border-radius: 8px;
+        }
+
+        .feature i {
+            font-size: 2.5rem;
+            color: #1a4a8f;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-school logo-icon"></i>
+                <h1>KACHUTALI HIGH SCHOOL</h1>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> Phone: 9864897982</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#" class="active" data-page="home">Home</a></li>
+                <li><a href="#" data-page="about">About</a></li>
+                <li><a href="#" data-page="administration">Administration</a></li>
+                <li><a href="#" data-page="notice">Notice</a></li>
+                <li><a href="#" data-page="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Home Page (Default) -->
+            <section id="home-page" class="page-content">
+                <div class="page-header">
+                    <h2>Welcome to Kachutali High School</h2>
+                    <p>Providing quality education since establishment</p>
+                </div>
+                
+                <div class="welcome-section">
+                    <h2>Education is the most powerful weapon which you can use to change the world</h2>
+                    <p>- Nelson Mandela</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-book-open"></i>
+                            <h3>Quality Education</h3>
+                            <p>Comprehensive curriculum following SEBA/SCERT guidelines</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <h3>Experienced Faculty</h3>
+                            <p>Dedicated teachers committed to student success</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Holistic Development</h3>
+                            <p>Focus on academic, physical, and moral growth</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Headmaster Desk on Home Page -->
+                <div class="headmaster-desk">
+                    <div class="headmaster-info">
+                        <div class="headmaster-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="headmaster-name">
+                            <h3>Dipti Kumar Chetia</h3>
+                            <p>Headmaster, Kachutali High School</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quote">
+                        <p>"Education is most powerful weapon which can use to change the world"</p>
+                        <p>-- Nelson Mandela</p>
+                    </div>
+                    
+                    <p>Welcome to Kachutali High School's official website. As the Headmaster, I am committed to providing a nurturing environment where every student can achieve their full potential. Our dedicated faculty and staff work tirelessly to ensure that our students receive not only academic excellence but also moral and ethical guidance to become responsible citizens.</p>
+                </div>
+                
+                <!-- Educational Links Section -->
+                <div class="links-section">
+                    <div class="link-card">
+                        <i class="fab fa-youtube"></i>
+                        <h3>Educational Link</h3>
+                        <p>Access our YouTube channel for SEBA/SCERT related educational content</p>
+                        <a href="https://www.youtube.com/@seba-scertrelatededucation3432" target="_blank">Visit Channel</a>
+                    </div>
+                    
+                    <div class="link-card">
+                        <i class="fas fa-download"></i>
+                        <h3>Study Materials</h3>
+                        <p>Download study materials, notes, and resources for various subjects</p>
+                        <a href="#" data-page="study-material">Access Materials</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- About Page -->
+            <section id="about-page" class="page-content" style="display: none;">
+                <div class="page-header">
+                    <h2>About Our School</h2>
+                </div>
+                
+                <div class="headmaster-desk">
+                    <h3>Our History</h3>
+                    <p>Kachutali High School has been a cornerstone of education in our community for many years. Founded with the mission to provide accessible, quality education to all, we have grown into a respected institution known for academic excellence and character development.</p>
+                    
+                    <h3>Our Mission</h3>
+                    <p>To provide a holistic education that develops students intellectually, physically, and morally, preparing them to face future challenges and contribute positively to society.</p>
+                    
+                    <h3>Our Vision</h3>
+                    <p>To be a leading educational institution that nurtures future leaders through innovative teaching methods and a supportive learning environment.</p>
+                </div>
+            </section>
+            
+            <!-- Administration Page -->
+            <section id="administration-page" class="page-content" style="display: none;">
+                <div class="page-header">
+                    <h2>School Administration</h2>
+                </div>
+                
+                <div class="headmaster-desk">
+                    <h3>Administrative Team</h3>
+                    <p>Our school administration works diligently to ensure smooth operations and a conducive learning environment for all students.</p>
+                    
+                    <div class="headmaster-info" style="margin-top: 30px;">
+                        <div class="headmaster-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="headmaster-name">
+                            <h3>Dipti Kumar Chetia</h3>
+                            <p>Headmaster</p>
+                            <p>Overall in-charge of school administration and academics</p>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 40px;">Other Administrative Staff</h3>
+                    <p>Our administrative team includes experienced professionals handling academic planning, student affairs, finance, and infrastructure management.</p>
+                </div>
+            </section>
+            
+            <!-- Notice Page -->
+            <section id="notice-page" class="page-content" style="display: none;">
+                <div class="page-header">
+                    <h2>School Notices</h2>
+                </div>
+                
+                <div class="headmaster-desk">
+                    <h3>Latest Notices</h3>
+                    
+                    <div style="margin-top: 20px; padding-left: 20px;">
+                        <h4><i class="fas fa-bell" style="color: #ffcc00; margin-right: 10px;"></i> Annual Exam Schedule</h4>
+                        <p>Date: 15th March 2024</p>
+                        <p>The schedule for annual examinations has been published. Please check the notice board for details.</p>
+                        <hr style="margin: 15px 0;">
+                        
+                        <h4><i class="fas fa-bell" style="color: #ffcc00; margin-right: 10px;"></i> Parent-Teacher Meeting</h4>
+                        <p>Date: 20th March 2024</p>
+                        <p>The next parent-teacher meeting will be held on 25th March 2024. All parents are requested to attend.</p>
+                        <hr style="margin: 15px 0;">
+                        
+                        <h4><i class="fas fa-bell" style="color: #ffcc00; margin-right: 10px;"></i> Holiday Announcement</h4>
+                        <p>Date: 10th March 2024</p>
+                        <p>School will remain closed on 26th March 2024 for local festival.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Contact Page -->
+            <section id="contact-page" class="page-content" style="display: none;">
+                <div class="page-header">
+                    <h2>Contact Us</h2>
+                </div>
+                
+                <div class="links-section">
+                    <div class="link-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>School Address</h3>
+                        <p>Kachutali High School<br>Kachutali, Assam, India</p>
+                    </div>
+                    
+                    <div class="link-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone Number</h3>
+                        <p>9864897982</p>
+                        <p>Available during school hours: 9:00 AM - 3:00 PM</p>
+                    </div>
+                    
+                    <div class="link-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>For inquiries, please contact the school administration during office hours.</p>
+                    </div>
+                </div>
+                
+                <div class="headmaster-desk" style="margin-top: 40px;">
+                    <h3>Website Development</h3>
+                    <p>This website was designed and developed by:</p>
+                    <div class="developer-info">
+                        <h4>Binod Pegu</h4>
+                        <p>Phone: 9864897982</p>
+                        <p>In collaboration with Dipti Kumar Chetia (Headmaster)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Study Material Page -->
+            <section id="study-material-page" class="page-content" style="display: none;">
+                <div class="page-header">
+                    <h2>Study Materials</h2>
+                </div>
+                
+                <div class="headmaster-desk">
+                    <h3>Educational Resources</h3>
+                    <p>Access study materials and resources for various subjects following SEBA/SCERT curriculum.</p>
+                    
+                    <div class="link-card" style="margin-top: 30px; text-align: left;">
+                        <h3><i class="fab fa-youtube" style="margin-right: 10px;"></i> YouTube Educational Channel</h3>
+                        <p>Visit our YouTube channel for video lessons and tutorials:</p>
+                        <a href="https://www.youtube.com/@seba-scertrelatededucation3432" target="_blank" style="margin-top: 15px;">
+                            <i class="fab fa-youtube"></i> @seba-scertrelatededucation3432
+                        </a>
+                    </div>
+                    
+                    <h3 style="margin-top: 40px;">Available Study Materials</h3>
+                    <ul style="padding-left: 20px; margin-top: 15px;">
+                        <li>Mathematics Notes and Practice Problems</li>
+                        <li>Science Lab Manuals and Experiments</li>
+                        <li>English Grammar and Composition Guides</li>
+                        <li>Social Science Study Materials</li>
+                        <li>Previous Years' Question Papers</li>
+                        <li>Sample Papers for Exam Preparation</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px;">For access to specific study materials, please contact the school administration or your subject teachers.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#" data-page="home" style="color: white; text-decoration: none;">Home</a></li>
+                        <li><a href="#" data-page="about" style="color: white; text-decoration: none;">About School</a></li>
+                        <li><a href="#" data-page="administration" style="color: white; text-decoration: none;">Administration</a></li>
+                        <li><a href="#" data-page="notice" style="color: white; text-decoration: none;">Notices</a></li>
+                        <li><a href="#" data-page="contact" style="color: white; text-decoration: none;">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Kachutali, Assam, India</p>
+                    <p><i class="fas fa-phone"></i> Phone: 9864897982</p>
+                    <p><i class="fas fa-clock"></i> School Hours: 9:00 AM - 3:00 PM</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Educational Resources</h3>
+                    <p>Access study materials and educational content through our YouTube channel:</p>
+                    <a href="https://www.youtube.com/@seba-scertrelatededucation3432" target="_blank" style="color: #ffcc00;">YouTube Channel</a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>Website Design and Developed by Binod Pegu | Phone: 9864897982 | In collaboration with Dipti Kumar Chetia (Headmaster)</p>
+                <p>&copy; 2024 Kachutali High School. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const pages = document.querySelectorAll('.page-content');
+            
+            // Function to show selected page and hide others
+            function showPage(pageId) {
+                // Hide all pages
+                pages.forEach(page => {
+                    page.style.display = 'none';
+                });
+                
+                // Show selected page
+                document.getElementById(pageId).style.display = 'block';
+                
+                // Update active navigation link
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-page') === pageId.replace('-page', '')) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Update page title
+                const pageTitle = document.getElementById(pageId).querySelector('.page-header h2');
+                if (pageTitle) {
+                    document.title = pageTitle.textContent + " | Kachutali High School";
+                }
+            }
+            
+            // Add click event to navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageName = this.getAttribute('data-page');
+                    showPage(pageName + '-page');
+                });
+            });
+            
+            // Add click event to footer links
+            document.querySelectorAll('footer a[data-page]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageName = this.getAttribute('data-page');
+                    showPage(pageName + '-page');
+                });
+            });
+            
+            // Add click event to study material link on home page
+            document.querySelector('a[data-page="study-material"]').addEventListener('click', function(e) {
+                e.preventDefault();
+                showPage('study-material-page');
+            });
+            
+            // Show home page by default
+            showPage('home-page');
+        });
+    </script>
+</body>
+</html>
